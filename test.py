@@ -24,7 +24,14 @@ class RosTest(unittest.TestCase):
     def test_newrobot(self):
         data = [1,1,1]
         got = Robot(data)
-        self.assertEqual([0,0,0], got.nuls.get())
+        self.assertEqual([0,0,0], got.mines.get())
+
+    def test_changedirecc(self):
+        data = [1,1,1]
+        got = Robot(data)
+        new = [2,2,2]
+        got.changedirecc(new)
+        self.assertEqual(new, got.direcc.get())
 
 if __name__ == '__main__':
     unittest.main()

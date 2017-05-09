@@ -22,8 +22,15 @@ class Coordinates():
 class Robot():
 
     def __init__(self, news):
-        self.nuls = Coordinates([0,0,0])
+        self.mines = Coordinates([0,0,0])
         self.direcc = Coordinates(news)
 
+    #as far a UR3 robot have 500mm of action
     def controller (self, nuls, direcc):
-        pass
+        if abs(direcc.x) < 500 :#&& abs(direcc.y) && abs(direcc.z):
+            return True
+        else:
+            return False
+
+    def changedirecc(self, news):
+        self.direcc = Coordinates(news)
