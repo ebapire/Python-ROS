@@ -65,6 +65,13 @@ class RosTest(unittest.TestCase):
         expected = [0]
         self.assertEqual(expected, mess.get())
 
+    def test_update(self):
+        data = [1,1,1]
+        got = Robot(data)
+        expected_origin = [0,0,0]
+        self.assertEqual(expected_origin, got.mines.get())
+        got.updatecoor()
+        self.assertEqual(data, got.mines.get())
 
 if __name__ == '__main__':
     unittest.main()

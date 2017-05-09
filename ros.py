@@ -50,3 +50,7 @@ class Robot():
         else:
             mess = Message(0, [])
         return mess
+
+    #we'll supose that the robot doesn't came back to the origin after a movement
+    def updatecoor(self):
+        self.mines = self.direcc
