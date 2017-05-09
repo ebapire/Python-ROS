@@ -50,6 +50,7 @@ class Robot():
         else:
             mess = Message(0, [])
         return mess
+        #sending the message, in case we have the server
 
     #we'll supose that the robot doesn't came back to the origin after a movement
     def updatecoor(self):

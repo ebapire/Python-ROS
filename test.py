@@ -73,5 +73,24 @@ class RosTest(unittest.TestCase):
         got.updatecoor()
         self.assertEqual(data, got.mines.get())
 
+    def test_integrate(self):
+        data_o = [1,1,1]
+        robot = Robot(data_o)
+        expected_origin = [0,0,0]
+        self.assertEqual(expected_origin, robot.mines.get())
+        self.assertEqual(data_o, robot.direcc.get())
+        mess = robot.sendcoordinates()
+        expected = Message(1, data_o)
+        self.assertEqual(expected.get(), mess.get())
+        robot.updatecoor()
+        self.assertEqual(data_o, robot.mines.get())
+        new_coor = [300, 3, -1]
+        robot.changedirecc(new_coor)
+        mess = robot.sendcoordinates()
+        self.assertEqual(new_coor, robot.direcc.get())
+        robot.updatecoor()
+        self.assertEqual(new_coor, robot.mines.get())
+
+
 if __name__ == '__main__':
     unittest.main()
