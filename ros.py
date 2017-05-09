@@ -5,6 +5,8 @@ class Message():
         if num == 1:
             coor = Coordinates(data)
             self.mess = [num, coor.x, coor.y, coor.z]
+        elif num == 0:
+            self.mess = [num]
         else:
             raise ValueError()
 
@@ -43,8 +45,8 @@ class Robot():
 
     def sendcoordinates(self):
         typemss = 1;
-        if self.controller:
+        if self.controller():
             mess = Message(typemss, self.direcc.get())
         else:
-            mess = None
+            mess = Message(0, [])
         return mess

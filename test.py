@@ -55,12 +55,15 @@ class RosTest(unittest.TestCase):
         data = [1,1,1]
         got = Robot(data)
         mess = got.sendcoordinates()
-        mess = mess.get()
-        self.assertEqual(1, mess[0])
-        self.assertEqual(data[0], mess[1])
-        self.assertEqual(data[1], mess[2])
-        self.assertEqual(data[2], mess[3])
+        expected = Message(1, data)
+        self.assertEqual(expected.get(), mess.get())
 
+    def test_sendingmess2(self):
+        data = [-600, -100, 4]
+        got = Robot(data)
+        mess = got.sendcoordinates()
+        expected = [0]
+        self.assertEqual(expected, mess.get())
 
 
 if __name__ == '__main__':
