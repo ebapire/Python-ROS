@@ -1,6 +1,6 @@
 import sys
 import unittest
-from ros import Coordinates
+from ros import Coordinates, Message
 
 class RosTest(unittest.TestCase):
     def test_newcoordinates(self):
@@ -16,7 +16,10 @@ class RosTest(unittest.TestCase):
         expected_coor = 1
         expected_type = 1
         got = Message(1, data)
-        self.assertEqual(expected_type, got[0])
+        self.assertEqual(expected_type, got.mess[0])
+        self.assertEqual(expected_coor, got.mess[1])
+        self.assertEqual(expected_coor, got.mess[2])
+        self.assertEqual(expected_coor, got.mess[3])
 
 
 if __name__ == '__main__':
