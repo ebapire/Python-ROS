@@ -26,8 +26,8 @@ class Robot():
         self.direcc = Coordinates(news)
 
     #as far a UR3 robot have 500mm of action
-    def controller (self, nuls, direcc):
-        if abs(direcc.x) < 500 :#&& abs(direcc.y) && abs(direcc.z):
+    def controller (self):
+        if (abs(self.direcc.x) < 500 and abs(self.direcc.y) and abs(self.direcc.z)):
             return True
         else:
             return False

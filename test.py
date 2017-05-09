@@ -45,5 +45,11 @@ class RosTest(unittest.TestCase):
         got = Robot(data)
         self.assertEqual(expected, got.controller())
 
+    def test_direcnotOk(self):
+        data = [-600, -100, 4]
+        expected = False
+        got = Robot(data)
+        self.assertEqual(expected, got.controller())
+
 if __name__ == '__main__':
     unittest.main()
