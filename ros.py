@@ -43,5 +43,8 @@ class Robot():
 
     def sendcoordinates(self):
         typemss = 1;
-        mess = Message(typemss, self.direcc.get())
+        if self.controller:
+            mess = Message(typemss, self.direcc.get())
+        else:
+            mess = None
         return mess
