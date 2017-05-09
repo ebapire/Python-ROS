@@ -8,6 +8,12 @@ class Message():
         else:
             raise ValueError()
 
+    def get(self):
+        aux = []
+        for i in range(0, len(self.mess)):
+            aux.append(self.mess[i])
+        return aux
+
 
 class Coordinates():
     def __init__(self, data):
@@ -34,3 +40,8 @@ class Robot():
 
     def changedirecc(self, news):
         self.direcc = Coordinates(news)
+
+    def sendcoordinates(self):
+        typemss = 1;
+        mess = Message(typemss, self.direcc.get())
+        return mess

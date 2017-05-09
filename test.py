@@ -51,5 +51,17 @@ class RosTest(unittest.TestCase):
         got = Robot(data)
         self.assertEqual(expected, got.controller())
 
+    def test_sendingmess(self):
+        data = [1,1,1]
+        got = Robot(data)
+        mess = got.sendcoordinates()
+        mess = mess.get()
+        self.assertEqual(1, mess[0])
+        self.assertEqual(data[0], mess[1])
+        self.assertEqual(data[1], mess[2])
+        self.assertEqual(data[2], mess[3])
+
+
+
 if __name__ == '__main__':
     unittest.main()
